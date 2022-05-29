@@ -1,0 +1,17 @@
+.Navbar {
+  font-size: 2rem;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.Navbar__NavLink {
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid orangered;
+}
+
+.Navbar__NavLink:hover {
+  color: orangered;
+}
