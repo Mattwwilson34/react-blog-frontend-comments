@@ -1,0 +1,28 @@
+.BlogThumbnail {
+  width: 50vw;
+  height: 23vh;
+}
+
+.BlogThumbnail__NavLink {
+  text-decoration: none;
+  color: black;
+}
+
+.BlogThumbnail__Title:hover {
+  color: orangered;
+}
+
+.BlogThumbnail__Author {
+  font-style: italic;
+}
+
+.BlogThumbnail__Text {
+  text-indent: 2rem;
+  text-overflow: ellipsis;
+  max-height: 45px;
+  overflow: hidden;
+}
+
+.BlogThumbnail__Published {
+  text-align: right;
+}

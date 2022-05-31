@@ -19,7 +19,7 @@
 .Blog__Text {
   text-indent: 2rem;
   text-overflow: ellipsis;
-  max-height: 7vh;
+  max-height: 45px;
   overflow: hidden;
 }
 
