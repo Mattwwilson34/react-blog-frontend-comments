@@ -1,5 +1,6 @@
 import './Blog.css';
 import React from 'react';
+import Comment from '../Comment';
 
 const Blog = (props) => {
   // Destructure blog_post
@@ -20,19 +21,10 @@ const Blog = (props) => {
             Author: {first_name} {last_name} ({email})
           </div>
           <p>{text}</p>
-          <div>
+          <div className='Comment__Wrapper'>
             {comments.map((comment) => {
               console.log(comment);
-              /* TODO Extract Comment into own component with set styles */
-              return (
-                <div key={comment._id}>
-                  <div>{comment.author.username}</div>
-                  <div>{comment.text}</div>
-                  <div>
-                    {comment.date_yyyy_mm_dd} at {comment.time_hour_min}
-                  </div>
-                </div>
-              );
+              return <Comment comment={comment} />;
             })}
           </div>
         </div>
