@@ -26,7 +26,7 @@ export default function Blogs() {
   };
 
   return (
-    <main>
+    <div>
       <h1>Blogs</h1>
       {loading ? (
         <div>...Blogs Loading...</div>
@@ -43,6 +43,6 @@ export default function Blogs() {
         </div>
       )}
       <Outlet />
-    </main>
+    </div>
   );
 }
