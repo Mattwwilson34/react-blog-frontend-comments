@@ -1,6 +1,8 @@
 .Blog {
-  width: 50vw;
-  height: 23vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 700px;
 }
 
 .Blog__NavLink {
@@ -8,21 +10,21 @@
   color: black;
 }
 
-.Blog__Title:hover {
-  color: orangered;
+.Blog__Title {
+  text-align: left;
 }
 
 .Blog__Author {
-  font-style: italic;
+  text-align: left;
+  max-width: 700px;
 }
 
 .Blog__Text {
   text-indent: 2rem;
-  text-overflow: ellipsis;
-  max-height: 45px;
-  overflow: hidden;
+  max-width: 700px;
 }
 
 .Blog__Published {
-  text-align: right;
+  text-align: left;
+  max-width: 700px;
 }
