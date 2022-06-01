@@ -1,0 +1,28 @@
+.Comment__Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Comment {
+  max-width: 30vw;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.Comment__Username {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.Comment__Text {
+  line-height: 1.5rem;
+}
+
+.Comment__DateTimePublished {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+  text-align: right;
+}
