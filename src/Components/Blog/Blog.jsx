@@ -14,13 +14,15 @@ const Blog = (props) => {
       {!props.blog ? (
         <div>...Blog Loading...</div>
       ) : (
-        <div>
-          <h1>{title}</h1>
-          <span>Published: {published ? 'true' : 'false'}</span>
-          <div>
+        <div className='Blog'>
+          <h1 className='Blog_title'>{title}</h1>
+          <div className='Blog__Author'>
             Author: {first_name} {last_name} ({email})
           </div>
-          <p>{text}</p>
+          <div className='Blog__Published'>
+            Published: {published ? 'true' : 'false'}
+          </div>
+          <p className='Blog__Text'>{text}</p>
           <div className='Comment__Wrapper'>
             {comments.map((comment) => {
               console.log(comment);
