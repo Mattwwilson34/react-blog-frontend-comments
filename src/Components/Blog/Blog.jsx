@@ -1,6 +1,12 @@
-import './Blog.css';
+// Utilities
 import React from 'react';
+
+// Components
 import Comment from '../Comment';
+import CommentForm from '../CommentForm';
+
+// Style Sheets
+import './Blog.css';
 
 const Blog = (props) => {
   // Destructure blog_post
@@ -23,10 +29,12 @@ const Blog = (props) => {
             Published: {published ? 'true' : 'false'}
           </div>
           <p className='Blog__Text'>{text}</p>
+          {/* New comment form */}
+          <CommentForm />
+          {/* Blog comments */}
           <div className='Comment__Wrapper'>
             {comments.map((comment) => {
-              console.log(comment);
-              return <Comment comment={comment} />;
+              return <Comment key={comment.id} comment={comment} />;
             })}
           </div>
         </div>
