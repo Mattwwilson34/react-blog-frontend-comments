@@ -10,10 +10,9 @@ import './Blog.css';
 
 const Blog = (props) => {
   // Destructure blog_post
-  const { title, text, published, comments, author } = props.blog;
-
+  const { _id: blogId, title, text, published, comments, author } = props.blog;
   // Destructure author
-  const { first_name, last_name, email } = author;
+  const { _id: authorId, first_name, last_name, email } = author;
 
   return (
     <>
@@ -30,7 +29,7 @@ const Blog = (props) => {
           </div>
           <p className='Blog__Text'>{text}</p>
           {/* New comment form */}
-          <CommentForm />
+          <CommentForm blogId={blogId} authorId={authorId} />
           {/* Blog comments */}
           <div className='Comment__Wrapper'>
             {comments.map((comment) => {
