@@ -6,6 +6,7 @@
 
 .Comment {
   max-width: 30vw;
+  min-width: 30vw;
   border: 1px solid rgba(0, 0, 0, 0.35);
   padding: 1rem;
   border-radius: 10px;
