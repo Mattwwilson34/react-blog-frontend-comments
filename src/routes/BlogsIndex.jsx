@@ -1,5 +1,9 @@
 // Import components
 import BlogThumbnail from '../Components/BlogThumbnail';
+import { List } from 'react-content-loader';
+
+// Style Sheets
+import '../index.css';
 
 // React utilities
 import React, { useEffect, useState } from 'react';
@@ -27,9 +31,15 @@ export default function Blogs() {
 
   return (
     <div>
-      <h1>Blogs</h1>
+      <h1 className='Blogs__Title'>Blogs</h1>
+      <hr className='Blogs_HR'></hr>
       {loading ? (
-        <div>...Blogs Loading...</div>
+        <div className='Blogs__LoadingContainer'>
+          <List />
+          <List />
+          <List />
+          <List />
+        </div>
       ) : (
         <div className='Blogs__Container'>
           {blogs.map((blog) => {
