@@ -4,6 +4,7 @@ import Blog from '../Components/Blog';
 // React utilities
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BlogLoader from '../Components/BlogLoader/BlogLoader';
 
 export default function Blogs() {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,9 @@ export default function Blogs() {
   return (
     <main>
       {loading ? (
-        <div>...Blog Loading...</div>
+        <div className='Blog__ContentLoader'>
+          <BlogLoader />
+        </div>
       ) : (
         <div className='Blog__Container'>
           <Blog blog={blog}></Blog>
