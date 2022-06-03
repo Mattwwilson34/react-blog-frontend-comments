@@ -1,0 +1,44 @@
+.CommentForm {
+  min-width: 30vw;
+  display: flex;
+  flex-direction: column;
+}
+.CommentForm__TextArea {
+  min-width: 30vw;
+  min-height: 15vh;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  font-size: 1rem;
+  resize: none;
+}
+
+.CommentForm__TextArea:focus {
+  outline: none;
+  background-color: white;
+  border-color: orangered;
+}
+
+.CommentForm__Submit {
+  display: block;
+  max-width: 50%;
+  min-width: 50%;
+  margin: 0.5rem auto 1rem auto;
+  background-color: #000;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  transition: 0.25s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.CommentForm__Submit:hover {
+  background-color: white;
+  color: orangered;
+  border: 1px solid #000;
+  cursor: pointer;
+}
