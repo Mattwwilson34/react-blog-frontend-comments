@@ -11,6 +11,7 @@ const BlogThumbnail = (props) => {
         <span className='BlogThumbnail__Author'>
           Author: {author.first_name} {author.last_name}
         </span>
+        <div></div>
         <p className='BlogThumbnail__Text'>{text}</p>
         <div className='BlogThumbnail__Published'>
           Published: {formatted_date_published}
