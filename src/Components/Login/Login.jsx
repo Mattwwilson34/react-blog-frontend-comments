@@ -1,8 +1,12 @@
-import './Login.css'
+// Components
+import LoginForm from '../LoginForm';
+// Style
+import './Login.css';
+// Utils
 import React from 'react';
 
 const Login = () => {
-  return <div>Login COMPONENT</div>;
-  }; 
+  return <LoginForm />;
+};
 
-  export default Login;
+export default Login;
