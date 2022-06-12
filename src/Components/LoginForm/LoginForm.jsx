@@ -1,6 +1,7 @@
 // Libraries/Packages
-import React, { useState } from 'react';
-import chalk from 'chalk';
+import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Style Sheets
 import './LoginForm.css';
@@ -8,11 +9,18 @@ import './LoginForm.css';
 const LoginForm = () => {
   // State
   const [loginCredentials, setLoginCredentials] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [authToken, setAuthToken] = useOutletContext();
 
-  /**
-   * Sends POST request with loginCredentials to API
-   * @param {fired when form submit button clicked} event
-   */
+  // Navigate
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (shouldRedirect) navigate('/');
+  });
+
+  // Handle form submission
   const handleSubmit = async (event) => {
     // Prevent page reload
     event.preventDefault();
@@ -23,15 +31,32 @@ const LoginForm = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(loginCredentials),
     };
-    const response = await fetch('http://localhost:8080/login', requestOptions);
-    const data = await response.json();
-    console.log(data);
+    // send post request to login with json payload
+    try {
+      const response = await fetch(
+        'http://localhost:8080/login',
+        requestOptions
+      );
+      // store response
+      const data = await response.json();
+
+      // handle server error message
+      if (data.message) return setErrorMessage(data.message);
+
+      // set app component state with API JSON token
+      setAuthToken(data.token);
+
+      // store auth token in local storage
+      localStorage.setItem('authToken', JSON.stringify(data.token));
+
+      // Redirect to home
+      setShouldRedirect(true);
+    } catch (error) {
+      console.log('Error with login');
+    }
   };
 
-  /**
-   * Stores login form username/password in state
-   * @param {fired when form text input changes} event
-   */
+  // Store login form username/password in state
   const handleInputChange = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
@@ -64,6 +89,9 @@ const LoginForm = () => {
         <div className='LoginForm__ButtonContainer'>
           <input type='submit' />
         </div>
+        {errorMessage && (
+          <div className='LoginForm__ErrorMessage'>{errorMessage}</div>
+        )}
       </form>
     </div>
   );
