@@ -33,3 +33,12 @@
 .LoginForm__ButtonContainer input:hover {
   cursor: pointer;
 }
+
+.LoginForm__ErrorMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.75rem;
+  min-height: 4vh;
+  background-color: rgba(252, 23, 23, 0.869);
+}
