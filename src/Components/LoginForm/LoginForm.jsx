@@ -11,7 +11,7 @@ const LoginForm = () => {
   const [loginCredentials, setLoginCredentials] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const [authToken, setAuthToken] = useOutletContext();
+  const { setAuthToken, setUser } = useOutletContext();
 
   // Navigate
   const navigate = useNavigate();
@@ -43,11 +43,13 @@ const LoginForm = () => {
       // handle server error message
       if (data.message) return setErrorMessage(data.message);
 
-      // set app component state with API JSON token
+      // set app component state with API JSON token and user
       setAuthToken(data.token);
+      setUser(data.user);
 
-      // store auth token in local storage
+      // store auth token and user in local storage
       localStorage.setItem('authToken', JSON.stringify(data.token));
+      localStorage.setItem('user', JSON.stringify(data.user));
 
       // Redirect to home
       setShouldRedirect(true);
