@@ -42,3 +42,21 @@
   min-height: 4vh;
   background-color: rgba(252, 23, 23, 0.869);
 }
+
+.Register__Container {
+  margin-top: 3rem;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Register__Link {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.Register__Link:hover {
+  cursor: pointer;
+  color: rgba(252, 23, 23, 0.869);
+}
