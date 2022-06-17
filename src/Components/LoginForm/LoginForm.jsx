@@ -1,6 +1,6 @@
 // Libraries/Packages
 import React, { useState, useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { NavLink, useOutletContext } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 // Style Sheets
@@ -67,35 +67,42 @@ const LoginForm = () => {
 
   // JSX code for login form
   const renderForm = (
-    <div className='LoginForm__Container'>
-      <form className='LoginForm' onSubmit={handleSubmit}>
-        <div className='LoginForm__InputContainer'>
-          <div className='LoginForm__Header'>LOGIN</div>
-          <input
-            type='text'
-            name='username'
-            required
-            onChange={handleInputChange}
-            placeholder='Username'
-          />
-        </div>
-        <div className='LoginForm__InputContainer'>
-          <input
-            type='password'
-            name='password'
-            required
-            onChange={handleInputChange}
-            placeholder='Password'
-          />
-        </div>
-        <div className='LoginForm__ButtonContainer'>
-          <input type='submit' />
-        </div>
-        {errorMessage && (
-          <div className='LoginForm__ErrorMessage'>{errorMessage}</div>
-        )}
-      </form>
-    </div>
+    <>
+      <div className='LoginForm__Container'>
+        <form className='LoginForm' onSubmit={handleSubmit}>
+          <div className='LoginForm__InputContainer'>
+            <div className='LoginForm__Header'>LOGIN</div>
+            <input
+              type='text'
+              name='username'
+              required
+              onChange={handleInputChange}
+              placeholder='Username'
+            />
+          </div>
+          <div className='LoginForm__InputContainer'>
+            <input
+              type='password'
+              name='password'
+              required
+              onChange={handleInputChange}
+              placeholder='Password'
+            />
+          </div>
+          <div className='LoginForm__ButtonContainer'>
+            <input type='submit' />
+          </div>
+          {errorMessage && (
+            <div className='LoginForm__ErrorMessage'>{errorMessage}</div>
+          )}
+        </form>
+      </div>
+      <div className='Register__Container'>
+        <NavLink className='Register__Link' to={'/register'}>
+          Click to Register
+        </NavLink>
+      </div>
+    </>
   );
 
   return renderForm;
