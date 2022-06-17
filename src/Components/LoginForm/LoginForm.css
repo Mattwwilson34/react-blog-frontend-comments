@@ -1,0 +1,44 @@
+.LoginForm__Container {
+  min-width: 25vw;
+  max-width: 25vw;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.LoginForm__InputContainer {
+  font-size: 1.25rem;
+}
+
+.LoginForm__Header {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.LoginForm__InputContainer input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.LoginForm__ButtonContainer input {
+  min-width: 100%;
+  min-height: 4vh;
+  background-color: rgb(57, 208, 57);
+  outline: none;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.LoginForm__ButtonContainer input:hover {
+  cursor: pointer;
+}
+
+.LoginForm__ErrorMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.75rem;
+  min-height: 4vh;
+  background-color: rgba(252, 23, 23, 0.869);
+}

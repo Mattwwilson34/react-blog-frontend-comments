@@ -1,0 +1,8 @@
+.App__Username {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+  padding: 0.25rem 0.5rem 0 0;
+  margin-left: auto;
+  width: 15vw;
+}
