@@ -13,6 +13,11 @@ const Logout = () => {
 
   const logOut = () => {
     setLogingOut(true);
+
+    // Remove jsonWebToken from local storage
+    const authToken = JSON.parse(localStorage.getItem('authToken'));
+    if (authToken) localStorage.removeItem('authToken');
+
     setTimeout(() => {
       navigate('/');
       setUser(null);
