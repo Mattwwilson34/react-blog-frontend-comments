@@ -1,8 +1,8 @@
-import './Register.css'
+import './Register.css';
 import React from 'react';
 
 const Register = () => {
   return <div>Register COMPONENT</div>;
-  }; 
+};
 
-  export default Register;
+export default Register;
