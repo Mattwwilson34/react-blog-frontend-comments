@@ -1,0 +1,63 @@
+.RegisterForm__Container {
+  min-width: 25vw;
+  max-width: 25vw;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.RegisterForm__InputContainer {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.RegisterForm__Header {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.RegisterForm__InputContainer input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.RegisterForm__ButtonContainer input {
+  min-width: 100%;
+  min-height: 4vh;
+  background-color: rgb(57, 208, 57);
+  outline: none;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.RegisterForm__ButtonContainer input:hover {
+  cursor: pointer;
+}
+
+.RegisterForm__ErrorMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.75rem;
+  min-height: 4vh;
+  background-color: rgba(252, 23, 23, 0.869);
+}
+
+.Register__Container {
+  margin-top: 3rem;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Register__Link {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.Register__Link:hover {
+  cursor: pointer;
+  color: rgba(252, 23, 23, 0.869);
+}
