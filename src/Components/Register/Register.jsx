@@ -69,7 +69,7 @@ const Register = () => {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ userRegistrationData: formData }),
       };
 
       // send post request to /user with json payload
