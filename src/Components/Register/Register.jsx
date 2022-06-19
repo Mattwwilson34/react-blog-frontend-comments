@@ -1,20 +1,27 @@
 import './Register.css';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   // State
   const [formData, setFormData] = useState({});
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [correctDateFormat, setCorrectDateFormat] = useState(true);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
-  /* Use effect hook with dependencies runs everytime password / DOB fields change
-     thanks to the dependency array
-  */
+  // Navigate
+  const navigate = useNavigate();
+
+  /**
+   *  Use effect hook with dependencies runs everytime password / DOB fields change
+   *  thanks to the dependency array
+   */
   useEffect(() => {
-    // Validate passwords match
+    //
     const pass1 = formData.password;
     const pass2 = formData.confirmPassword;
 
+    // Validate passwords match
     if (pass1 === pass2) {
       setPasswordMatch(true);
     } else {
@@ -28,7 +35,16 @@ const Register = () => {
     } else {
       setCorrectDateFormat(false);
     }
-  }, [formData.password, formData.confirmPassword, formData.DOB]);
+
+    // Navigate to login page if user registers
+    if (shouldRedirect) navigate('/login');
+  }, [
+    formData.password,
+    formData.confirmPassword,
+    formData.DOB,
+    shouldRedirect,
+    navigate,
+  ]);
 
   const handleInputChange = (event) => {
     const inputName = event.target.name;
@@ -36,15 +52,46 @@ const Register = () => {
     setFormData({ ...formData, [inputName]: inputValue });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Prevent form default on submit
     event.preventDefault();
-    // TODO create a validated object from form data
-    // TODO send a post request with object in json format
+
+    /**
+     * Confirm form data validation
+     * If invalid respond with error
+     * If valid post form data json payload to /user
+     */
     if (!passwordMatch || !correctDateFormat) {
-      return console.log('Form validation failed');
+      console.log('Form validation Fail');
     } else {
-      console.log('Form validation success!');
+      //
+      // Set options for fetch POST
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      };
+
+      // send post request to /user with json payload
+      try {
+        const response = await fetch(
+          'http://localhost:8080/user',
+          requestOptions
+        );
+        // store response
+        const data = await response.json();
+
+        // Check for returned user
+        if (data.user) {
+          //
+          // Redirect to home
+          setShouldRedirect(true);
+        }
+        // Log error
+        else console.log('Failed to create user');
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
